@@ -1,1 +1,1 @@
-# CafeApp
+# CafeApp [![Build Status](https://travis-ci.org/jereang/CafeApp.svg?branch=master)](https://travis-ci.org/jereang/CafeApp)

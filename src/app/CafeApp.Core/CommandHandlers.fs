@@ -19,7 +19,7 @@ let handlePlaceOrder order = function
     else
       [OrderPlaced order] |> ok
   | ClosedTab _ -> fail CanNotOrderWithClosedTab
-  | _ -> failwith "ToDo"
+  | _ -> fail OrderAlreadyPlaced
 
 let execute state command = 
   match command with
