@@ -13,7 +13,12 @@ let handleOpenTab tab = function
   | _ -> TabAlreadyOpened |> fail
 
 let handlePlaceOrder order = function
-  | OpenedTab _ -> [OrderPlaced order] |> ok
+  | OpenedTab _ -> 
+    if List.isEmpty order.Foods && List.isEmpty order.Drinks then
+      fail CanNotPlaceEmptyOrder
+    else
+      [OrderPlaced order] |> ok
+  | ClosedTab _ -> fail CanNotOrderWithClosedTab
   | _ -> failwith "ToDo"
 
 let execute state command = 
